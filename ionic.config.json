@@ -1,0 +1,7 @@
+{
+  "name": "clientPanel",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
