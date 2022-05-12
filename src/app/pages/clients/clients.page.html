@@ -1,0 +1,31 @@
+<ion-grid>
+  <ion-row class="clients-header">
+    <p class='total'>Total Balance : <span>{{balance | currency:"USD":"symbol"}}</span></p>
+    <ion-button [routerLink]="['/addClient']" class="ion-color-danger ion-color add-btn"> 
+      <ion-icon name='add'></ion-icon> new
+    </ion-button>
+  </ion-row>
+  <ion-row>
+    <ion-col size-xs="12" size-sm="6" size-md="4" *ngFor="let client of clients; index as i">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>
+            {{client.firstName }} {{client.lastName}}
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>
+            <ion-icon name="person" class='ion-icon'></ion-icon>{{client.email}}
+          </p>
+          <p>
+            <ion-icon name="call"></ion-icon>{{client.phone}}
+          </p>
+          <p>
+            <ion-icon name="wallet"></ion-icon>{{client.balance | currency:"USD":"symbol"}}
+          </p>
+          <ion-button [routerLink]="['/client', client.id]">Details</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

@@ -1,0 +1,88 @@
+<ion-row class="ion-justify-content-center">
+  <ion-col size="6"class="ion-margin-horizontal" style="height: 50px;">
+    <p *ngIf="serverResponse" class="alert alert-success text-center mb-0">{{serverResponse}}</p>
+  </ion-col>
+  <ion-col size="6">
+    <ion-card class="add-user-card">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-icon name="add-circle-outline"></ion-icon>add client
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <form [formGroup]="addClientForm" (ngSubmit)="onSubmit()">
+          <!-- First Name -->
+          <ion-item>
+            <ion-label position="floating"> <ion-icon name="person-circle"></ion-icon>First Name</ion-label>
+            <ion-input formControlName='firstName' type='text'></ion-input>
+          </ion-item>
+          <div class="alert alert-danger"
+            *ngIf="addClientForm.controls.firstName.invalid && (addClientForm.controls.firstName.dirty || addClientForm.controls.firstName.touched)">
+            <div *ngIf="addClientForm.controls.firstName.errors.required">
+              first name is required.
+            </div>
+            <div *ngIf="addClientForm.controls.firstName.errors.minlength">
+              first name must be at least 2 characters long.
+            </div>
+          </div>
+          <!-- Last Name -->
+          <ion-item>
+            <ion-label position="floating"><ion-icon name="person-circle"></ion-icon>Last Name</ion-label>
+            <ion-input formControlName='lastName' type='text'></ion-input>
+          </ion-item>
+          <div class="alert alert-danger"
+            *ngIf="addClientForm.controls.lastName.invalid && (addClientForm.controls.lastName.dirty || addClientForm.controls.lastName.touched)">
+            <div *ngIf="addClientForm.controls.lastName.errors.required">
+              last name is required.
+            </div>
+            <div *ngIf="addClientForm.controls.lastName.errors.minlength">
+              last name must be at least 2 characters long.
+            </div>
+          </div>
+          <!-- Email  -->
+          <ion-item>
+            <ion-label position="floating"><ion-icon name="mail"></ion-icon>Email</ion-label>
+            <ion-input formControlName='email'></ion-input>
+          </ion-item>
+          <div class="alert alert-danger"
+            *ngIf="addClientForm.controls.email.invalid && (addClientForm.controls.email.dirty || addClientForm.controls.email.touched)">
+            <div *ngIf="addClientForm.controls.email.errors.required">
+              email is required.
+            </div>
+            <div *ngIf="addClientForm.controls.email.errors.pattern">
+              please enter a valid email.
+            </div>
+          </div>
+          <!-- Phone -->
+          <ion-item>
+            <ion-label position="floating"><ion-icon name="call"></ion-icon>Phone</ion-label>
+            <ion-input formControlName='phone' type='text'></ion-input>
+          </ion-item>
+          <div class="alert alert-danger"
+            *ngIf="addClientForm.controls.phone.invalid && (addClientForm.controls.phone.dirty || addClientForm.controls.phone.touched)">
+            <div *ngIf="addClientForm.controls.phone.errors.required">
+              phone is required.
+            </div>
+            <div *ngIf="addClientForm.controls.phone.errors.pattern">
+              please enter a valid phone number.
+            </div>
+          </div>
+          <!-- Balance -->
+          <ion-item>
+            <ion-label position="floating"><ion-icon name="cash"></ion-icon>Balance</ion-label>
+            <ion-input formControlName='balance' type='number'></ion-input>
+          </ion-item>
+          <div class="alert alert-danger"
+            *ngIf="addClientForm.controls.balance.invalid && (addClientForm.controls.balance.dirty || addClientForm.controls.balance.touched)">
+            <div *ngIf="addClientForm.controls.balance.errors.required">
+              balance is required.
+            </div>
+          </div>
+          <div class="btn-container">
+            <ion-button [disabled]="!addClientForm.valid" type="submit">add client</ion-button>
+          </div>
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </ion-col>
+</ion-row>

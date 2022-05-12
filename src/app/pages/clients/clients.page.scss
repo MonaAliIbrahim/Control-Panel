@@ -1,0 +1,41 @@
+.clients-header {
+  display: flex;
+  justify-content: space-between;
+  
+  .total {
+    text-align: right;
+    right: 0px;
+    padding: 10px;
+    margin-bottom:10;
+
+    span {
+      color: var(--ion-color-danger);
+    }
+  }
+
+  .add-btn {
+    text-transform: capitalize;
+    margin: 0 15px 5px;
+    font-weight: bold;
+  
+    ion-icon {
+      font-weight: 700;
+    }
+  }
+}
+
+ion-card {
+  ion-card-title {
+    text-transform: capitalize;
+  }
+
+  ion-card-content {
+    p {
+      margin-bottom: 12px;
+
+      ion-icon {
+        margin-right: 4px;
+      }
+    }
+  }
+}

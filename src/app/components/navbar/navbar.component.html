@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-primary mb-5">
+  <a class="navbar-brand" [routerLink]="['/']">
+    ClientPanel
+  </a>
+  <button class="navbar-toggler" type="button"(click)="toggleNavbar()">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a [routerLink]="['/client']" routerLinkActive="active" routerLinkActiveOptions="{exact: false}" class="nav-link">clients</a>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="['/addClient']" routerLinkActive="active" class="nav-link">add client</a>
+      </li>
+      <li class="nav-item">
+        <ion-chip (click)="showUserMenu()">
+          <ion-avatar>
+            <img src="https://cdn4.iconfinder.com/data/icons/48-bubbles/48/30.User-512.png">
+          </ion-avatar>
+          <ion-label *ngIf="isLogened">{{ userInfo }}</ion-label>
+          <ion-icon name="caret-down-circle-outline"></ion-icon>
+        </ion-chip>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,41 @@
+<ion-row class="ion-justify-content-center">
+  <ion-col size="8">
+    <div class="details-header" >
+      <a [routerLink]="['/client']">
+        <ion-icon name="arrow-back" class="icon back-icon"></ion-icon>Back to Clients
+      </a>
+      <div class="btn-group">
+        <ion-button [routerLink]="['/client/edit/', client?.id]" class="ion-color ion-color-success">Edit</ion-button>
+        <ion-button (click)="deleteClient(client.id)" class="ion-color ion-color-danger">Delete</ion-button>
+      </div>
+    </div>
+  </ion-col>
+  <ion-col size="8">
+    <ion-card *ngIf="client">
+      <ion-card-header>
+        <ion-card-title>{{ client?.firstName }}{{ client?.lastName }}</ion-card-title>
+        <ion-card-subtitle>Client ID : {{ client?.id }}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item>Client Phone: {{ client?.phone }}</ion-item>
+          <ion-item>Client Email: {{ client?.email }}</ion-item>
+          <ion-item class="balance-item">
+            Balance: <span> {{ client?.balance | currency:"USD":"symbol" }} </span>
+            <ion-button (click)="showForm = !showForm" 
+              [ngClass]="!showForm ? 'ion-color-danger ion-color' : 'ion-color-success ion-color'">
+              <ion-icon name="pencil" class="ion-margin-2"></ion-icon>
+            </ion-button>
+          </ion-item>
+        </ion-list>
+        <form *ngIf="showForm">
+          <ion-input type="number" name="balance" [(ngModel)]="client.balance"></ion-input>
+          <ion-button (click)="updateBalance()" [disabled]="this.client.balance == null">Update</ion-button>
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </ion-col>
+  <ion-col size="8">
+    <flash-messages></flash-messages>
+  </ion-col>
+</ion-row>

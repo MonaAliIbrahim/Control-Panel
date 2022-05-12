@@ -1,0 +1,41 @@
+
+// buttons style
+
+{/* <ion-header>
+    <ion-toolbar>
+      <ion-title>Buttons Example</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+
+    <!-- Default -->
+    <ion-button>Default</ion-button>
+
+    <!-- Expand -->
+    <ion-button expand="full" color="primary">Full Button</ion-button>
+    <ion-button expand="block" color="secondary">Block Button</ion-button>
+
+    <!-- Round -->
+    <ion-button shape="round" color="warning">Round Button</ion-button>
+
+    <!-- Fill -->
+    <ion-button expand="full" fill="outline" color="success">Outline Button</ion-button>
+    <ion-button expand="block" fill="clear" color="danger">Clear Button</ion-button>
+  </ion-content> */}
+
+
+// forms
+{/* <div *ngIf="addClientForm.get('firstname').touched; then required"></div>
+<div>
+  <ng-template #required>
+    <span class="mb-10" *ngIf="addClientForm.controls['firstname'].hasError('required')" class='text-danger'>first
+      name is required</span>
+  </ng-template>
+</div>
+<div *ngIf="addClientForm.get('firstname').touched ; then length "></div>
+<div>
+  <ng-template #length>
+    <span class="mb-10" *ngIf="addClientForm.controls['firstname'].hasError('minlength')" class='text-danger'>
+      first name must be at least 2 characters</span>
+  </ng-template>
+</div>  */}

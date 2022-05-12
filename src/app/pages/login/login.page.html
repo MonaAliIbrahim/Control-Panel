@@ -1,0 +1,47 @@
+<ion-content>
+  <ion-row class="ion-justify-content-center ion-text-center">
+    <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>
+            <span><ion-icon name="bag-outline"></ion-icon>client panel</span> login
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <ion-item>
+              <ion-input type="email" 
+                name="email" 
+                autocomplete="false"
+                placeholder="your@email.com" 
+                formControlName="email">
+              </ion-input>
+            </ion-item>
+            <div class="alert alert-danger"
+              *ngIf="loginForm.controls.email.invalid && (loginForm.controls.email.dirty || loginForm.controls.email.touched)">
+              <div *ngIf="loginForm.controls.email.errors.required">
+                email is required.
+              </div>
+              <div *ngIf="loginForm.controls.email.errors.pattern">
+                please enter a valid email.
+              </div>
+            </div>
+            <ion-item>
+              <ion-input type="password" name="password" placeholder="******" formControlName="password"></ion-input>
+            </ion-item>
+            <div class="alert alert-danger"
+              *ngIf="loginForm.controls.password.invalid && (loginForm.controls.password.dirty || loginForm.controls.password.touched)">
+                password is required.
+            </div>
+            <div>
+              <ion-button size="large" type="submit" [disabled]="loginForm.invalid" expand="block">Login</ion-button>
+            </div>
+            <div class="msg-container">
+              <flash-messages></flash-messages>
+            </div>      
+          </form>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>

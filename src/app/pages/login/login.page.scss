@@ -1,0 +1,38 @@
+ion-row{
+  height: calc(100vh);
+  align-items: center;
+
+  ion-card {
+    padding: 16px;
+
+    ion-card-title {
+      text-transform: capitalize;
+      font-weight: 700;
+      margin-bottom: 26px;
+    
+      span {
+        color: blue;
+
+        ion-icon {
+          margin: 0 6px -1px;
+        }
+      }
+    }
+
+    ion-item {
+      ion-label {
+        font-size: 18px;
+        font-weight: 700;
+      }
+    }
+
+    ion-button {
+      margin: 25px auto;
+    }
+
+    .msg-container {
+      text-align: center;
+      margin: auto;
+    }
+  }
+}
