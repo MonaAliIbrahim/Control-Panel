@@ -32,7 +32,7 @@ export class ClientDetailsPage implements OnInit {
     this.showForm = !this.showForm;
   }
 
-  deleteClient() {
+  deleteClient(client) {
     if (confirm('Are you sure you want to delete client?')) {
       this.clientService.deleteClient(this.client).then(() => {
         this.flashMessage.show('Client has been deleted successfuly', {cssClass: 'alert-success text-center', timeout: '3000'});
